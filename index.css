@@ -1,0 +1,262 @@
+/* ---------- Design tokens ---------- */
+:root {
+    --navy: #0d182e;
+    --card-border: #252f42;
+    --blue: #035a9d;
+    --blue-dark: #024577;
+    --green: #32cd32;
+    --text: #333333;
+    --text-muted: #8a8f99;
+    --field-bg: #eff0f4;
+    --page-bg: #e8ebf1;
+    --white: #ffffff;
+
+    --font-body: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-brand: "Saira Condensed", "Arial Narrow", sans-serif;
+
+    --app-width: 390px;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--page-bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+p {
+    margin: 0;
+}
+
+img {
+    display: block;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+    color: inherit;
+}
+
+/* ---------- App shell ---------- */
+.app {
+    width: 100%;
+    max-width: var(--app-width);
+    margin: 40px auto;
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(13, 24, 46, 0.18);
+}
+
+@media (max-width: 480px) {
+    body {
+        background: var(--white);
+    }
+
+    .app {
+        max-width: none;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+}
+
+/* ---------- Header ---------- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    height: 213px;
+    padding: 0 24px 0 12px;
+    background-color: var(--navy);
+    background-image: url("./assets/worldmap.png");
+    background-repeat: no-repeat;
+    background-size: auto 150%;
+    background-position: 42% 30%;
+}
+
+.hero__logo {
+    width: 100px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.hero__text {
+    margin-top: 8px;
+}
+
+.hero__title {
+    font-family: var(--font-brand);
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--green);
+}
+
+.hero__tagline {
+    margin-top: 9px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--white);
+}
+
+/* ---------- Card ---------- */
+.card {
+    margin: 30px 14px 35px;
+    padding: 20px 20px 41px;
+    border: 3px solid var(--card-border);
+    border-radius: 16px;
+}
+
+.view {
+    display: flex;
+    flex-direction: column;
+}
+
+.card__label {
+    display: block;
+    margin-bottom: 21px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--blue);
+}
+
+/* Eingabe- und Ausgabefelder teilen sich denselben Look */
+.text-box {
+    width: 100%;
+    min-height: 117px;
+    margin-bottom: 25px;
+    padding: 12px 11px;
+    border: none;
+    border-radius: 8px;
+    background: var(--field-bg);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--text);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+textarea.text-box {
+    display: block;
+    resize: none;
+}
+
+.text-box::placeholder {
+    color: var(--text-muted);
+}
+
+.text-box:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+}
+
+#translation-text {
+    color: #000;
+}
+
+/* ---------- Language selection ---------- */
+.languages {
+    margin: 0 0 35px;
+    padding: 0;
+    border: none;
+    min-width: 0;
+}
+
+.languages legend {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.languages__options {
+    display: flex;
+    flex-direction: column;
+    margin-top: 23px;
+    padding-left: 21px;
+}
+
+.language {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-height: 35px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.language input {
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    accent-color: var(--blue);
+    cursor: pointer;
+}
+
+.language__flag {
+    width: 30px;
+    height: 20px;
+    margin-left: 1px;
+    outline: 1px solid #c9ccd2;
+}
+
+.language input:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+}
+
+/* ---------- Button ---------- */
+.btn {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 6px;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn:hover {
+    background: var(--blue-dark);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--green);
+    outline-offset: 2px;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}

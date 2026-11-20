@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PollyGlot</title>
+    <link rel="icon" href="assets/parrot.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Saira+Condensed:wght@600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <main class="app">
+        <header class="hero">
+            <img class="hero__logo" src="assets/parrot.png" alt="">
+            <div class="hero__text">
+                <h1 class="hero__title">PollyGlot</h1>
+                <p class="hero__tagline">Perfect Translation Every Time</p>
+            </div>
+        </header>
+
+        <section class="card">
+            <!-- View 1: Eingabe -->
+            <form class="view" id="translate-form">
+                <label class="card__label" for="text-input">Text to translate 👇</label>
+                <textarea class="text-box" id="text-input" name="text" placeholder="How are you?" required></textarea>
+
+                <fieldset class="languages">
+                    <legend class="card__label">Select language 👇</legend>
+                    <div class="languages__options">
+                        <label class="language">
+                            <input type="radio" name="language" value="French" checked>
+                            French
+                            <img class="language__flag" src="assets/fr-flag.png" alt="">
+                        </label>
+                        <label class="language">
+                            <input type="radio" name="language" value="Spanish">
+                            Spanish
+                            <img class="language__flag" src="assets/sp-flag.png" alt="">
+                        </label>
+                        <label class="language">
+                            <input type="radio" name="language" value="Japanese">
+                            Japanese
+                            <img class="language__flag" src="assets/jpn-flag.png" alt="">
+                        </label>
+                    </div>
+                </fieldset>
+
+                <button class="btn" id="translate-btn" type="submit">Translate</button>
+            </form>
+
+            <!-- View 2: Ergebnis (per JS einblenden: hidden entfernen / setzen) -->
+            <div class="view" id="result-view" hidden>
+                <h2 class="card__label">Original text 👇</h2>
+                <p class="text-box" id="original-text"></p>
+
+                <h2 class="card__label">Your translation 👇</h2>
+                <p class="text-box" id="translation-text" aria-live="polite"></p>
+
+                <button class="btn" id="start-over-btn" type="button">Start Over</button>
+            </div>
+
+            <div class="view" id="error-view" hidden>
+                <h2 class="card__label">Error ❌</h2>
+                <p class="text-box" id="error-text"></p>
+
+                <button class="btn" id="restart-btn" type="button">Try again</button>
+            </div>
+        </section>
+    </main>
+    <script src="index.js" type="module"></script>
+</body>
+
+</html>
