@@ -1,7 +1,12 @@
-import {defineConfig} from "vite"
+import { defineConfig } from 'vite'
 
 export default defineConfig({
-	plugins: [
-		
-	]
+  plugins: [],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+      },
+    },
+  },
 })
